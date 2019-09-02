@@ -1,3 +1,2 @@
 # diary
-my first test project
-
+my first test project called "diary"
