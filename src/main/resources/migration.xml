@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="initial_schema" author="marina">
+        <createTable tableName="notes">
+            <column name="note_id" type="varchar(50)">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="title" type="text"/>
+            <column name="text" type="text"/>
+            <column name="date" type="date">
+                <constraints nullable="false"/>
+            </column>
+            <column name="creation_time" type="timestamp">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <createTable tableName="sport_activities">
+            <column name="activity_id" type="varchar(50)">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="title" type="text"/>
+            <column name="text" type="text"/>
+            <column name="date" type="date">
+                <constraints nullable="false"/>
+            </column>
+            <column name="creation_time" type="timestamp">
+                <constraints nullable="false"/>
+            </column>
+            <column name="start_time" type="time">
+                <constraints nullable="false"/>
+            </column>
+            <column name="finish_time" type="time">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <createTable tableName="meals">
+            <column name="meal_id" type="varchar(50)">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="title" type="text"/>
+            <column name="text" type="text"/>
+            <column name="date" type="date">
+                <constraints nullable="false"/>
+            </column>
+            <column name="creation_time" type="timestamp">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <createTable tableName="health_parameters">
+            <column name="health_param_id" type="varchar(50)">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="title" type="text"/>
+            <column name="text" type="text"/>
+            <column name="date" type="date">
+                <constraints nullable="false"/>
+            </column>
+            <column name="creation_time" type="timestamp">
+                <constraints nullable="false"/>
+            </column>
+            <column name="blood_pressure" type="int"/>
+            <column name="heart_rate" type="int"/>
+            <column name="weight" type="int"/>
+            <column name="overall_feeling" type="varchar(200)"/>
+            <column name="body_parameters" type="varchar(200)"/>
+        </createTable>
+
+        <createTable tableName="exercise_toughness">
+            <column name="toughness_id" type="varchar(50)">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="toughness" type="varchar(20)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <createTable tableName="exercise">
+            <column name="exercise_id" type="varchar(50)">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="activity_id" type="varchar(50)">
+                <constraints nullable="false" foreignKeyName="fk_sport_activity_activity_id"
+                             referencedTableName="sport_activities" referencedColumnNames="activity_id"/>
+            </column>
+            <column name="weight" type="int"/>
+            <column name="amount_of_repeats" type="int"/>
+            <column name="amount_of_cycles" type="int"/>
+            <column name="toughness" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <createTable tableName="food_info">
+            <column name="food_info_id" type="varchar(50)">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="meal_id" type="varchar(50)">
+                <constraints nullable="false" foreignKeyName="fk_food_info_meal_id" referencedColumnNames="meal_id"
+                             referencedTableName="meals"/>
+            </column>
+            <column name="product" type="varchar(200)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="portion_weight" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="calories" type="int">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+</databaseChangeLog>
