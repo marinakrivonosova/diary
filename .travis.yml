@@ -2,8 +2,6 @@ language: java
 addons:
   sonarcloud:
     organization: "marinakrivonosova"
-    token:
-      secure: 6bcb7c0e0e9b9ce4b4af8ca9fc96ffdc84de43cb
-
+   
 script:
   - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar -Dsonar.projectKey=marinakrivonosova_diary
