@@ -3,7 +3,7 @@ addons:
   sonarcloud:
     organization: "marinakrivonosova"
     token:
-      secure: travis encrypt 0f555038c97ed706c28f047e38d84b269a82a89b
+      secure: 6bcb7c0e0e9b9ce4b4af8ca9fc96ffdc84de43cb
 
 script:
   # the following command line builds the project, runs the tests with coverage and then execute the SonarCloud analysis
