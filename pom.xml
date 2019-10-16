@@ -17,6 +17,10 @@
         <jersey.version>2.29</jersey.version>
         <jackson.version>2.9.9</jackson.version>
         <jdbi.version>3.8.2</jdbi.version>
+
+        <sonar.host.url>https://sonarcloud.io</sonar.host.url>
+        <sonar.organization>marinakrivonosova</sonar.organization>
+        <sonar.projectKey>marinakrivonosova_diary</sonar.projectKey>
     </properties>
 
     <dependencies>
