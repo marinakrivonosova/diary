@@ -3,6 +3,6 @@ addons:
   sonarcloud:
     organization: "marinakrivonosova"
     token:
-      secure:  $SONAR_TOKEN
+      secure:  bded25ee0a14175eb79e812269925bc3d6acf01c
 script:
   - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar -Dsonar.projectKey=marinakrivonosova_diaryk
